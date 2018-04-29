@@ -27,5 +27,7 @@ node_modules
 # ignore node_modules
 node_modules/
 
+# custom files
 package-lock.json
+/tmp/*
 
