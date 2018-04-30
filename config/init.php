@@ -12,7 +12,7 @@ define("CACHE", ROOT . "/tmp/cache");
 define("CONF", ROOT . "/config");
 define("VENDOR", ROOT . "/vendor");
 //default layout
-define("LAYOUT", ROOT . "default");
+define("LAYOUT", "default");
 //host path
 $app_path = preg_replace("#[^/]+$#", "", "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}");
 $app_path = str_replace("/public/", "", $app_path);
