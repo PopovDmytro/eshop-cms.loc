@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use eshop\Cache;
+
 class MainController extends AppController {
 
     public function indexAction() {
@@ -12,6 +14,17 @@ class MainController extends AppController {
         $name = 'John';
         $age = 30;
         $names = ['Ag', 'Bag', 'Mag'];
+
+        //Cache
+        $cache = Cache::instance();
+//        $cache->set('test', $names);
+//        $cache->delete('test');
+        $data = $cache->get('test');
+        if($data) {
+            $cache->set('test', $names);
+        }
+        //
+
         $this->set(compact('name', 'age', 'names', 'posts'));
     }
 }
