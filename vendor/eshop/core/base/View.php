@@ -4,7 +4,7 @@ namespace eshop\base;
 
 use eshop\App;
 
-abstract class View {
+class View {
 
     public $route;
     public $controller;
