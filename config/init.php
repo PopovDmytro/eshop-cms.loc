@@ -1,7 +1,7 @@
 <?php
 
 //debug mode
-define("DEBUG", 1);
+define("DEBUG", 0);
 //paths
 define("ROOT", dirname(__DIR__));
 define("WWW", ROOT . "/public");
@@ -12,7 +12,7 @@ define("CACHE", ROOT . "/tmp/cache");
 define("CONF", ROOT . "/config");
 define("VENDOR", ROOT . "/vendor");
 //default layout
-define("LAYOUT", "default");
+define("LAYOUT", "watches");
 //host path
 $app_path = preg_replace("#[^/]+$#", "", "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}");
 $app_path = str_replace("/public/", "", $app_path);
