@@ -21,8 +21,9 @@
                     <div class="box">
                         <select tabindex="4" class="dropdown drop">
                             <option value="" class="label">Dollar :</option>
-                            <option value="1">Dollar</option>
-                            <option value="2">Euro</option>
+                            <option value="1">Hrivna</option>
+                            <option value="2">Dollar</option>
+                            <option value="3">Euro</option>
                         </select>
                     </div>
                     <div class="box1">
@@ -213,13 +214,11 @@
 </div>
 <!--bottom-header-->
 
-
-
+<!--content-->
 <div class="content">
     <?php echo $content;?>
 </div>
-
-
+<!--end content-->
 
 <!--information-starts-->
 <div class="information">
