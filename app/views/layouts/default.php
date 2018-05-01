@@ -18,6 +18,5 @@
 
 <?php echo $content;?>
 
-
 </body>
 </html>
