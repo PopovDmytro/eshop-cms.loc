@@ -1,7 +1,7 @@
 <?php
 
 //debug mode
-define("DEBUG", 0);
+define("DEBUG", 1);
 //paths
 define("ROOT", dirname(__DIR__));
 define("WWW", ROOT . "/public");
