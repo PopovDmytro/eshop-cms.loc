@@ -12,6 +12,7 @@ class Menu {
     protected $menuHtml;
     protected $tpl;
     protected $container = 'ul';
+    protected $class = 'menu';
     protected $table = 'category';
     protected $cache = 3600;
     protected $cacheKey = 'eshop_menu';
@@ -40,25 +41,53 @@ class Menu {
             if(!$this->data){
                 $this->data = \R::getAssoc("SELECT * FROM {$this->table}");
             }
-
+            $this->tree = $this->getTree();
+            $this->menuHtml = $this->getMenuHtml($this->tree);
+            if($this->cache) {
+                $cache->set($this->cacheKey, $this->menuHtml, $this->cache);
+            }
         }
         $this->output();
     }
 
     protected function output() {
+        $attrs = '';
+        if(!empty($this->attrs)){
+            foreach ($this->attrs as $k => $v) {
+                $attrs .= " $k='$v' ";
+            }
+        }
+        echo "<{$this->container} class='{$this->class}' $attrs >";
+        echo $this->prepend;
         echo $this->menuHtml;
+        echo "</{$this->container}>";
     }
 
     protected function getTree() {
-
+        $three = [];
+        $data = $this->data;
+        foreach ($data as $id => &$node) {
+            if (!$node['parent_id']) {
+                $three[$id] = &$node;
+            } else {
+                $data[$node['parent_id']]['child'][$id] = &$node;
+            }
+        }
+        return $three;
     }
 
     protected function getMenuHtml($tree, $tab = '') {
-
+        $str = '';
+        foreach ($tree as $id => $category) {
+            $str .= $this->catToTemplate($category, $tab, $id);
+        }
+        return $str;
     }
 
     protected function catToTemplate($category, $tab, $id) {
-        
+        ob_start();
+        require $this->tpl;
+        return ob_get_clean();
     }
 
 }
