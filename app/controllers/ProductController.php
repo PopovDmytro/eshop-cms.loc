@@ -14,7 +14,7 @@ class ProductController extends AppController {
         //breadcrumbs
 
         //bundle products
-
+        $related = \R::getAll("SELECT * FROM related_product JOIN product ON product.id = related_product.related_id WHERE related_product.product_id = ?", [$product->id]);
         //write in cookies viewed product
 
         //viewed products
@@ -24,6 +24,6 @@ class ProductController extends AppController {
         //gallery
 
         $this->setMeta($product->title, $product->descriprion, $product->keywords);
-        $this->set(compact('product'));
+        $this->set(compact('product', 'related'));
     }
 }
