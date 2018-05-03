@@ -3070,3 +3070,16 @@ ul.tag-men {
 .product-one > .product-left{
 	margin-bottom: 20px;
 }
+
+.add-to-cart-block {
+	display: flex;
+	margin-top: 12px;
+}
+
+.add-to-cart-block .quantity{
+	margin-right: 10px;
+}
+
+.add-to-cart-block a.add-cart {
+	margin-top: 0;
+}
