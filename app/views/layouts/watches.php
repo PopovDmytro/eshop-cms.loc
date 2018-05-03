@@ -5,11 +5,12 @@
     <?php echo $this->getMeta()?>
 
     <base href="/">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="megamenu/css/ionicons.min.css">
+    <link rel="stylesheet" href="megamenu/css/style.css">
 </head>
 <body>
 <!--top-header-->
@@ -197,10 +198,12 @@
                         </li>
                     </ul>
                 </div>-->
-                <div class="menu">
-                    <?php new \app\widgets\menu\Menu([
-                            'tpl' => WWW . '/menu/menu.php'
-                    ]);?>
+                <div class="menu-container">
+                    <div class="menu">
+                        <?php new \app\widgets\menu\Menu([
+                                'tpl' => WWW . '/menu/menu.php'
+                        ]);?>
+                    </div>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -312,6 +315,7 @@
     });
 </script>
 <!---->
+<script src="megamenu/js/megamenu.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
