@@ -154,6 +154,14 @@
 </div>
 <!--footer-end-->
 
+
+<?php $curr = \eshop\App::$app->getProperty('currency');?>
+<script>
+    const path = '<?=PATH;?>';
+    const course = '<?=$curr['value'];?>';
+    const symbolLeft = '<?=$curr['symbol_left'];?>';
+    const symbolRight = '<?=$curr['symbol_right'];?>';
+</script>
 <!--js-->
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/simpleCart.min.js"> </script>
