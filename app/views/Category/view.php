@@ -3,8 +3,7 @@
     <div class="container">
         <div class="breadcrumbs-main">
             <ol class="breadcrumb">
-                <li><a href="<?=PATH;?>">Home</a></li>
-                <li >Category</li>
+                <?=$breadcrumbs;?>
             </ol>
         </div>
     </div>
@@ -42,6 +41,12 @@
                             </div>
                         <?php endforeach; ?>
                         <div class="clearfix"></div>
+                        <div class="text-center">
+                            <p>(<?=count($products)?>: items of :<?=$total?>)</p>
+                            <?php if($pagination->countPages > 1): ?>
+                                <?=$pagination; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 <?php else:?>
                     <h3>This is category empty yet ...</h3>
