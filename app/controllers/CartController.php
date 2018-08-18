@@ -1,17 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dimah
- * Date: 09-Aug-18
- * Time: 22:39
- */
 
 namespace app\controllers;
 
 
+use app\models\Cart;
+
 class CartController extends AppController {
 
-    public static function addAction(){
+    public function addAction(){
 
         $id = !empty($_GET['id']) ? (int)$_GET['id'] : null;
         $qty = !empty($_GET['qty']) ? (int)$_GET['qty'] : null;
@@ -28,6 +24,42 @@ class CartController extends AppController {
                 $mod = \R::findOne('modification', 'id = ? AND product_id = ?', [$mod_id, $id]);
             }
         }
-        die;
+
+        $cart = new Cart();
+        $cart->addToCart($product, $qty, $mod);
+
+        if ($this->isAjax()) {
+            $this->loadView('cart_modal');
+        }
+
+    }
+
+    public function showAction() {
+        $this->loadView('cart_modal');
+    }
+
+    public function deleteAction() {
+        $id = !empty($_GET['id']) ? $_GET['id'] : null;
+
+        if(isset($_SESSION['cart'][$id])) {
+            $cart = new Cart();
+            $cart->deleteItem($id);
+        }
+        if($this->isAjax()) {
+            $this->loadView('cart_modal');
+        }
+        redirect();
+    }
+
+    public function clearCartAction() {
+        if(isset($_SESSION['cart'])) {
+            $cart = new Cart();
+            $cart->clearCart();
+        }
+
+        if($this->isAjax()) {
+            $this->loadView('cart_modal');
+        }
+        redirect();
     }
 }

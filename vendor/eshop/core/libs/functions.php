@@ -13,3 +13,7 @@ function redicert($http = false) {
     header("Location: $redirect");
     exit;
 }
+
+function h ($h) {
+    return htmlspecialchars($h, ENT_QUOTES);
+}
