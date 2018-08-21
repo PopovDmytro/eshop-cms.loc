@@ -15,6 +15,6 @@ class CurrencyController extends AppController {
                 Cart::recalc($curr);
             }
         }
-        redicert();
+        redirect();
     }
 }

@@ -26,13 +26,17 @@
                             <?php new \app\widgets\currency\Currency();?>
                         </select>
                     </div>
-                    <div class="box1">
-                        <select tabindex="4" class="dropdown">
-                            <option value="" class="label">English :</option>
-                            <option value="1">English</option>
-                            <option value="2">French</option>
-                            <option value="3">German</option>
-                        </select>
+                    <div class="btn-group">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <?php if(!empty($_SESSION['user'])):?>
+                                <li><a href="#"><?= h($_SESSION['user']['name']) ?></a></li>
+                                <li><a href="user/logout">Exit</a></li>
+                            <?php else:?>
+                                <li><a href="user/login">Enter</a></li>
+                                <li><a href="user/signup">Register</a></li>
+                            <?php endif;?>
+                        </ul>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -93,6 +97,28 @@
 
 <!--content-->
 <div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php if(isset($_SESSION['errors'])):?>
+                    <div class="alert alert-danger">
+                        <?php
+                            echo $_SESSION['errors'];
+                            unset($_SESSION['errors']);
+                        ?>
+                    </div>
+                <?php endif;?>
+                <?php if(isset($_SESSION['success'])):?>
+                    <div class="alert alert-success">
+                        <?php
+                        echo $_SESSION['success'];
+                        unset($_SESSION['success']);
+                        ?>
+                    </div>
+                <?php endif;?>
+            </div>
+        </div>
+    </div>
     <?php echo $content;?>
 </div>
 <!--end content-->
@@ -195,6 +221,7 @@
 <!--js-->
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/validator.min.js"></script>
 <script src="js/typeahead.bundle.js"></script>
 
 <script src="js/jquery.easydropdown.js"></script>

@@ -4,7 +4,7 @@ function debug($arr) {
     echo '<pre>' . print_r($arr, true) . '</pre>';
 }
 
-function redicert($http = false) {
+function redirect($http = false) {
     if($http) {
         $redirect = $http;
     } else {
