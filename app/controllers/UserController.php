@@ -20,12 +20,12 @@ class UserController extends AppController {
             } else {
                 $user->attributes['password'] = password_hash($user->attributes['password'], PASSWORD_DEFAULT);
                 if($user->save('user')) {
-                    $_SESSION['success'] = 'OK';
+                    $_SESSION['success'] = ' registration OK';
                 } else {
                     $_SESSION['error'] = 'ERROR !';
                 }
-                redirect();
             }
+            redirect();
         }
 
         $this->setMeta('Register');

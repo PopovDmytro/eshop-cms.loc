@@ -98,7 +98,25 @@ function getCart() {
     });
 }
 
-//Serch
+function recalculateCart(prod_id) {
+
+    var id = prod_id,
+        qty = $('#cart_qty_' + id).val() ? $('#cart_qty_' + id).val() : 1;
+
+    $.ajax({
+        url:  '/cart/recalculate',
+        data: {id: id, qty: qty},
+        type: 'GET',
+        success: function (res) {
+            showCart(res);
+        },
+        error: function () {
+            alert('Error in ajax request during recalculate');
+        }
+    });
+}
+
+//Search
 var products = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,

@@ -51,6 +51,30 @@ class Cart extends AppModel {
         unset($_SESSION['cart.currency']);
     }
 
+    public function recalculateCart ($id, $qty) {
+
+        if(!isset($_SESSION['cart.currency'])) {
+            $_SESSION['cart.currency'] = App::$app->getProperty('currency');
+        }
+
+        if($qty <= 0) {
+            return false;
+        }
+
+        $cartQty = $_SESSION['cart'][$id]['qty'];
+        $_SESSION['cart'][$id]['qty'] = $qty;
+
+        if ($qty > $cartQty) {
+            $qty = $qty - $cartQty;
+            $_SESSION['cart.qty'] = $_SESSION['cart.qty'] + $qty;
+            $_SESSION['cart.sum'] = $_SESSION['cart.sum'] + $qty * ( $_SESSION['cart'][$id]['price'] * $_SESSION['cart.currency']['value']);
+        } else {
+            $qty = $cartQty - $qty;
+            $_SESSION['cart.qty'] = $_SESSION['cart.qty'] - $qty;
+            $_SESSION['cart.sum'] = $_SESSION['cart.sum'] - $qty * ( $_SESSION['cart'][$id]['price'] * $_SESSION['cart.currency']['value']);
+        }
+    }
+
     public static function recalc($curr) {
         if(isset($_SESSION['cart.currency'])) {
 
