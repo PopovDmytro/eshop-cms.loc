@@ -206,10 +206,9 @@
         </div>
     </div>
 </div>
-
-<div class="preloader"><img src="images/ring.svg" alt=""></div>
 <!--modal-end-->
 
+<div class="preloader"><img src="images/ring.svg" alt=""></div>
 
 <?php $curr = \eshop\App::$app->getProperty('currency');?>
 <script>
