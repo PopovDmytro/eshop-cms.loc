@@ -7,7 +7,13 @@ class MainController extends AppController {
     public $layout = 'admin';
 
     public function indexAction () {
+        $countNewOrders = \R::count('order', "status = '0'");
+        $countUsers = \R::count('user');
+        $countProducts = \R::count('product');
+        $countCategories = \R::count('category');
+        $this->setMeta('Admin panel');
 
+        $this->set(compact('countNewOrders', 'countUsers', 'countProducts', 'countCategories'));
     }
 
 }
