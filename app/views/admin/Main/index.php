@@ -23,7 +23,7 @@
                 <div class="icon">
                     <i class="ion ion-bag"></i>
                 </div>
-                <a href="<?=ADMIN?>/orders" class="small-box-footer">All orders <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?=ADMIN?>/order" class="small-box-footer">All orders <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
