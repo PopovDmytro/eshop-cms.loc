@@ -24,7 +24,6 @@ abstract class Model {
         }
     }
 
-
     public function save($table) {
         $tbl = \R::dispense($table);
 
@@ -33,6 +32,16 @@ abstract class Model {
         }
 
         return \R::store($tbl);
+    }
+
+    public function update($table, $id) {
+        $bean = \R::load($table, $id);
+
+        foreach ($this->attributes as $name => $value) {
+            $bean->$name = $value;
+        }
+
+        return \R::store($bean);
     }
 
     public function validate($data) {
