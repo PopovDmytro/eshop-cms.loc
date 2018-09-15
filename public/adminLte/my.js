@@ -1,5 +1,5 @@
-$('.delete').on('click', function(){
-    var res = confirm('Подтвердите действие delete');
+$('.delete').click(function(){
+    var res = confirm('Подтвердите действие');
     if(!res) return false;
 });
 
@@ -127,10 +127,10 @@ if(buttonMulti){
 }
 
 $('#add').on('submit', function(){
-    if(!isNumeric( $('#category_id').val() )){
-        alert('Выберите категорию');
-        return false;
-    }
+     if(!isNumeric( $('#category_id').val() )){
+         alert('Выберите категорию');
+         return false;
+     }
 });
 
 function isNumeric(n) {

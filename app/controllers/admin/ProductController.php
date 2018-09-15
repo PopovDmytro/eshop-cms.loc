@@ -3,6 +3,7 @@
 namespace app\controllers\admin;
 
 use app\models\admin\Product;
+use app\models\AppModel;
 use eshop\libs\Pagination;
 
 class ProductController extends AppController {
@@ -35,6 +36,10 @@ JOIN category ON category.id = product.category_id ORDER BY product.title LIMIT 
             }
 
             if($id = $product->save('product')) {
+                $alias = AppModel::createAlias('product', 'alias', $data['title'], $id);
+                $p = \R::load('product', $id);
+                $p->alias = $alias;
+                \R::store($p);
                 $_SESSION['success'] = 'Product added';
             }
 

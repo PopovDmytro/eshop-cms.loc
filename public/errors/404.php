@@ -1,52 +1,66 @@
-<!--
-Author: W3layouts
+<!--A Design by W3layouts
+Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-    <title>Cool 404 Page Widget Flat Responsive Widget Template :: w3layouts</title>
-    <!-- for-mobile-apps -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Cool 404 Page Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-        function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- //for-mobile-apps -->
-    <link href="css/style-404.css" rel="stylesheet" type="text/css" media="all" />
-    <link href='//fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
+    <title>Free 404 White for Iphone, Android & Smartphone Mobile Website Template | Home :: w3layouts</title>
+    <style type="text/css">
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .wrap{
+            width:1000px;
+            margin:0 auto;
+        }
+        .logo{
+            width:430px;
+            position:absolute;
+            top:25%;
+            left:35%;
+        }
+        p a{
+            color:#eee;
+            font-size:13px;
+            margin-left:30px;
+            padding:5px;
+            background:#FF3366;
+            text-decoration:none;
+            -webkit-border-radius:.3em;
+            -moz-border-radius:.3em;
+            border-radius:.3em;
+        }
+        p a:hover{
+            color: #fff;
+        }
+        .footer{
+            position:absolute;
+            bottom:10px;
+            right:10px;
+            font-size:12px;
+            color:#aaa;
+        }
+        .footer a{
+            color:#666;
+            text-decoration:none;
+        }
+
+    </style>
 </head>
 <body>
-<div class="main">
-    <div class="nav_w3l">
-        <ul>
-            <li class=""><a href="<?php echo PATH;?>" class="hvr-sweep-to-bottom" >Home</a></li>
-            <li><a href="index.html" class="hvr-sweep-to-bottom">About Us</a></li>
-            <li><a href="index.html" class="hvr-sweep-to-bottom">Portfolio</a></li>
-            <li><a href="index.html" class="hvr-sweep-to-bottom">Services</a></li>
-            <li><a href="index.html" class="hvr-sweep-to-bottom">Mail Us</a></li>
-        </ul>
-    </div>
-    <h1>404</h1>
-    <h2>ooops, something goes wrong</h2>
-    <div class="more_w3ls">
-        <a href="index.html">Try Once Again</a>
-    </div>
-    <div class="wthree_social_icons">
-        <div>
-            <a href="#"><span>Facebook</span></a>
-            <a href="#"><span>Twitter</span></a>
-            <a href="#"><span>Tumblr</span></a>
-            <a href="#"><span>LinkedIn</span></a>
-            <a href="#"><span>Vimeo</span></a>
-        </div>
-    </div>
-    <div class="copyright">
-        <p>© 2016 Cool 404 Page Widget. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+<div class="wrap">
+    <div class="logo">
+        <img src="/errors/images/404.png" alt=""  />
+        <p><a href="<?=PATH;?>">Go back to Home</a></p>
     </div>
 </div>
+<div class="footer">
+    Design by - <a href="http://w3layouts.com">W3Layouts</a>
+</div>
+
 </body>
 </html>

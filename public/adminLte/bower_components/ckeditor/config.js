@@ -1,6 +1,6 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see https://ckeditor.com/legal/ckeditor-oss-license
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
 CKEDITOR.editorConfig = function( config ) {
@@ -35,4 +35,11 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+
+    config.filebrowserBrowseUrl = path + '/adminlte/bower_components/kcfinder/browse.php?opener=ckeditor&type=files';
+    config.filebrowserImageBrowseUrl = path + '/adminlte/bower_components/kcfinder/browse.php?opener=ckeditor&type=images';
+    config.filebrowserFlashBrowseUrl = path + '/adminlte/bower_components/kcfinder/browse.php?opener=ckeditor&type=flash';
+    config.filebrowserUploadUrl = path + '/adminlte/bower_components/kcfinder/upload.php?opener=ckeditor&type=files';
+    config.filebrowserImageUploadUrl = path + '/adminlte/bower_components/kcfinder/upload.php?opener=ckeditor&type=images';
+    config.filebrowserFlashUploadUrl = path + '/adminlte/bower_components/kcfinder/upload.php?opener=ckeditor&type=flash';
 };
