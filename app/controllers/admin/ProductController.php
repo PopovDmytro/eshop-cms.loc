@@ -40,6 +40,7 @@ JOIN category ON category.id = product.category_id ORDER BY product.title LIMIT 
                 $p = \R::load('product', $id);
                 $p->alias = $alias;
                 \R::store($p);
+                $product->editFilter($id, $data);
                 $_SESSION['success'] = 'Product added';
             }
 

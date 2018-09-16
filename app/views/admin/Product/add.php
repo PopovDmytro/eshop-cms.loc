@@ -83,7 +83,7 @@
                             <select name="related[]" class="form-control select2" id="related" multiple></select>
                         </div>
 
-<!--                        --><?php //new \app\widgets\filter\Filter(null, WWW . '/filter/admin_filter_tpl.php'); ?>
+                        <?php new \app\widgets\filter\Filter(null, WWW . '/filter/admin_filter_tpl.php'); ?>
                         <!--https://dcrazed.com/html5-jquery-file-upload-scripts/-->
                         <div class="form-group">
                             <div class="col-md-4">
