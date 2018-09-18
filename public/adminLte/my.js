@@ -45,14 +45,14 @@ $('.sidebar-menu a').each(function(){
 // CKEDITOR.replace('editor1');
 $('#editor1').ckeditor();
 
-$('#reset-filter').click(function(){
+$('#reset-filter').on('click', function(){
     $('#filter input[type=radio]').prop('checked', false);
     return false;
 });
 
 $(".select2").select2({
     placeholder: "Начните вводить наименование товара",
-    //minimumInputLength: 2,
+    minimumInputLength: 2,
     cache: true,
     ajax: {
         url: adminpath + "/product/related-product",

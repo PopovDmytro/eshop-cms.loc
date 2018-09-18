@@ -8,5 +8,9 @@ return [
     'smtp_port' => '2525',
     'smtp_protocol' => 'ssl',
     'smtp_login' => 'super_eshop@ukr.net',
-    'smtp_password' => '$_Manowar2018'
+    'smtp_password' => '$_Manowar2018',
+    'img_width' => 125,
+    'img_height' => 200,
+    'gallery_width' => 700,
+    'gallery_height' => 1000
 ];

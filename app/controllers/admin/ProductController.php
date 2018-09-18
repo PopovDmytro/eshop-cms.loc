@@ -4,6 +4,7 @@ namespace app\controllers\admin;
 
 use app\models\admin\Product;
 use app\models\AppModel;
+use eshop\App;
 use eshop\libs\Pagination;
 
 class ProductController extends AppController {
@@ -20,6 +21,23 @@ JOIN category ON category.id = product.category_id ORDER BY product.title LIMIT 
         $this->set(compact('products', 'pagination', 'count' ));
     }
 
+
+    public function addImageAction () {
+        if(isset($_GET['upload'])) {
+            if($_POST['name'] == 'single') {
+                $wmax = App::$app->getProperty('img_width');
+                $hmax = App::$app->getProperty('img_height');
+
+            } else {
+                $wmax = App::$app->getProperty('gallery_width');
+                $hmax = App::$app->getProperty('gallery_height');
+            }
+            $name = $_POST['name'];
+            $product = new Product();
+            $product->uploadImg($name, $wmax, $hmax);
+        }
+    }
+
     public function addAction () {
 
         if(!empty($_POST)) {
@@ -28,6 +46,7 @@ JOIN category ON category.id = product.category_id ORDER BY product.title LIMIT 
             $product->load($data);
             $product->attributes['status'] = $product->attributes['status'] ? '1' : '0';
             $product->attributes['hit'] = $product->attributes['hit'] ? '1' : '0';
+            $product->getImg();
 
             if(!$product->validate($data)) {
                 $product->getErrors();
@@ -36,11 +55,13 @@ JOIN category ON category.id = product.category_id ORDER BY product.title LIMIT 
             }
 
             if($id = $product->save('product')) {
+                $product->saveGallery($id);
                 $alias = AppModel::createAlias('product', 'alias', $data['title'], $id);
                 $p = \R::load('product', $id);
                 $p->alias = $alias;
                 \R::store($p);
                 $product->editFilter($id, $data);
+                $product->editRelatedProduct($id, $data);
                 $_SESSION['success'] = 'Product added';
             }
 
@@ -50,4 +71,20 @@ JOIN category ON category.id = product.category_id ORDER BY product.title LIMIT 
         $this->setMeta('New product');
     }
 
+    public function relatedProductAction () {
+        $q = isset($_GET['q']) ? $_GET['q'] : "";
+        $data['items'] = [];
+        $products = \R::getAssoc('SELECT id, title FROM product WHERE title LIKE ? LIMIT 10', ["%{$q}%"]);
+        if($products) {
+            $i = 0;
+
+            foreach ($products as $id => $title) {
+                $data['items'][$i]['id'] = $id;
+                $data['items'][$i]['text'] = $title;
+                $i++;
+            }
+        }
+        echo json_encode($data);
+        exit;
+    }
 }
